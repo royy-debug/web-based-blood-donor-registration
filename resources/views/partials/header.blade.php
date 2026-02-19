@@ -1,7 +1,7 @@
 <header class="fixed top-0 left-0 w-full z-30 bg-white/70 shadow-md" x-data="{ open: false }">
   <div class="container mx-auto flex justify-between items-center py-3 px-4">
     <a href="{{ route('utama') }}" class="flex items-center">
-      <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="h-10 object-contain"/>
+<img src="{{ asset('images/logo.svg') }}" alt="Logo" class="h-10 object-contain"/>
     </a>
 
     {{-- desktop nav --}}
