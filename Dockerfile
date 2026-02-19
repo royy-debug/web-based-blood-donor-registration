@@ -29,7 +29,7 @@ RUN composer install --no-dev --optimize-autoloader
 
 RUN chmod -R 775 storage bootstrap/cache
 
-CMD php artisan key:generate --force && \
+CMD 
     php artisan config:clear && \
     php artisan cache:clear && \
     php artisan migrate --force && \
