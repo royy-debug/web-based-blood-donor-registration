@@ -25,15 +25,10 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs \
-    && npm install \
-    && npm run build
-
 
 
 RUN composer install --no-dev --optimize-autoloader
 
 RUN chmod -R 775 storage bootstrap/cache
 
-CMD ["sh", "-c", "php artisan storage:link || true && php artisan config:clear && php artisan config:cache && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"]
+CMD ["sh", "-c", "php artisan storage:link || true && php artisan migrate --force && php -S 0.0.0.0:$PORT -t public"]
